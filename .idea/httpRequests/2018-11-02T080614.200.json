@@ -1,0 +1,17 @@
+{
+  "message": "User Add Successful!",
+  "data": {
+    "actions": {
+      "comment": {
+        "commentfor": [],
+        "content": []
+      },
+      "upvotefor": ""
+    },
+    "_id": "5bdcae3608474c05b2e72a0e",
+    "username": "test",
+    "password": "$2b$10$os.7b/xry7tWbxKQV8iulOBYRvGvt1Hx9D2dYYTCdPo46.xhVZWBW",
+    "usertype": "admin",
+    "__v": 0
+  }
+}
