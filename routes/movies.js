@@ -36,7 +36,7 @@ router.addMovie = (req, res) => {
             movie.movietype = req.body.movietype;
             movie.Directedby = req.body.Directedby;
             movie.mainActor = req.body.mainActor;
-
+            movie.description = req.body.description;
             movie.save(function(err,movie) {
                 if (err)
                     res.json({ message: 'Movie Add Failed!', errmsg : err });
@@ -54,7 +54,7 @@ router.addMovietest = (req, res) => {
         movie.movietype = req.body.movietype;
         movie.Directedby = req.body.Directedby;
         movie.mainActor = req.body.mainActor;
-
+        movie.description = req.body.description;
         movie.save(function(err) {
             if (err)
                 res.json({ message: 'Movie Add Failed!', errmsg : err });
@@ -73,6 +73,7 @@ router.changeMovieInfo = (req, res) => {
             movie.movietype = req.body.movietype;
             movie.Directedby = req.body.Directedby;
             movie.mainActor = req.body.mainActor;
+            movie.description = req.body.description;
             movie.save(function (err) {
                 if (err)
                     res.json({message:"Upvote failed",errmsg:err});
@@ -117,6 +118,22 @@ router.getMoviesByDirector = (req, res) => {
     var query={};
     if(req.params.Directedby) {
         query['Directedby']=new RegExp(req.params.Directedby);//模糊查询参数
+    }
+    Movie.find(query,function(err, movie){
+        if (err){
+            res.send({ message: 'No Such Movies!', errmsg : err });
+        }
+        else{
+            res.send(JSON.stringify(movie,null,5));
+        }
+    });
+};
+router.getMoviesByName = (req, res) => {
+
+    res.setHeader('Content-Type', 'application/json');
+    var query={};
+    if(req.params.name) {
+        query['name']=new RegExp(req.params.name);//模糊查询参数
     }
     Movie.find(query,function(err, movie){
         if (err){

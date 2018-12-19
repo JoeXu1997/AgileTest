@@ -42,7 +42,7 @@ router.getusers = (req, res) => {
 };
 router.getMy=(req,res)=>{
     res.setHeader('Content-Type', 'application/json');
-    User.findOne({"username":req.body.operator},function (err,user) {
+    User.findOne({"username":req.params.username},function (err,user) {
         if (err){
             res.send({ message: 'No Such User!', errmsg : err });
         }else

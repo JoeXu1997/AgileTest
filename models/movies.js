@@ -19,6 +19,7 @@ let MovieSchema = new mongoose.Schema({        //  add movie description and com
         movietype: String,
         Directedby: String,
         mainActor: String,
+        description: String,
         upvotes: {type: Number, default: 0}
     },
     { collection: 'movie' });

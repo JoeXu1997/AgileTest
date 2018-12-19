@@ -44,6 +44,20 @@ router.getcomments = (req, res) => {
         res.send(JSON.stringify(comments,null,5));
     });
 };
+router.addOneComment = (req, res) =>{
+    res.setHeader('Content-Type', 'application/json');
+    var comment = new Comment();
+    comment.username = req.body.username;
+    comment.commentfor = req.body.commentfor;
+    comment.content = req.body.content;
+
+    comment.save(function(err) {
+        if (err)
+            res.json({ message: 'Comment Add Failed!', errmsg : err });
+        else
+            res.json({ message: 'Comment Add Successful!',data:comment});
+    });
+}
 router.addcomment = (req,res)=>{  //{"username":"joe","commentfor":"Inception","content":"Nice film"}
     res.setHeader('Content-Type', 'application/json');
     var comment = new Comment();
@@ -125,17 +139,11 @@ router.getOneComment = (req,res)=>{//回调函数是在router方法体运行完�
 }
 router.removeComment = (req,res)=>{
     res.setHeader('Content-Type', 'application/json');
-    var content="";
-    var commentfor="";
-    var username="";
+
     Comment.findByIdAndRemove(req.params.id, function(err,comment) {
         if (err)
             res.json({message:"Delete Failed",errmsg:err})
         else {
-            content = comment.content;
-            commentfor = comment.commentfor;
-            username = comment.username;
-            removeUsrComment(username, commentfor, content);
             res.json({message: "Delete Successful",data:comment});
         }
     });

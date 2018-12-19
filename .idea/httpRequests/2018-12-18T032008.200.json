@@ -1,0 +1,38 @@
+[
+  {
+    "upvotes": 0,
+    "_id": "5c18de50eb88d0176bab44ba",
+    "name": "Roman Holiday",
+    "movietype": "Romance",
+    "Directedby": "William Wyler",
+    "mainActor": "Audrey Hepburn",
+    "__v": 0
+  },
+  {
+    "upvotes": 0,
+    "_id": "5c18de50eb88d0176bab44be",
+    "name": "Civilization",
+    "movietype": "Documentary",
+    "Directedby": "Ashley Gething",
+    "mainActor": "null",
+    "__v": 0
+  },
+  {
+    "upvotes": 0,
+    "_id": "5c18de50eb88d0176bab44c0",
+    "name": "Despicable Me",
+    "movietype": "Children",
+    "Directedby": "Chris Renaud & Pierre Coffin",
+    "mainActor": "Steve Carell",
+    "__v": 0
+  },
+  {
+    "upvotes": 0,
+    "_id": "5c18de50eb88d0176bab44c1",
+    "name": "Dangal",
+    "movietype": "Sports",
+    "Directedby": "Nitesh Tiwari",
+    "mainActor": "Aamir Khan",
+    "__v": 0
+  }
+]

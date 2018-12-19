@@ -37,11 +37,12 @@ app.delete('/movies/:id',movies.removeMovie)
 app.post('/movies',movies.addMovie);
 app.post('/addmoviestest',movies.addMovietest);
 app.get('/movies/:movietype',movies.getMoviesByType);
-app.get('/movies/actor/:mainActor',movies.getMoviesByActor);//fuzzy?
+app.get('/movies/actor/:mainActor',movies.getMoviesByActor);
+app.get('/movies/name/:name',movies.getMoviesByName)//fuzzy?
 app.get('/movies/director/:Directedby',movies.getMoviesByDirector);// params or query?
 //app.get('/movies/comments/:name',movies.getMovieComments)
 //router for users
-app.get('/usr/myself',users.getMy);
+app.get('/usr/myself/:username',users.getMy);
 app.get('/usr',users.getusers);
 app.get('/usr/upvote/:upvotefor',users.getUserWithUpvotefor);
 app.get('/usr/comment/:commentfor',users.getUserWithCommentfor);
@@ -56,7 +57,7 @@ app.get('/comment/movie/:commentfor',comment.getCommentByMovieName);
 app.get('/comment/:username',comment.getUserComment);
 app.put('/comment/:id',comment.editComment);
 app.delete('/comment/:id',comment.removeComment);
-app.post('/comment',comment.addcomment);
+app.post('/comment',comment.addOneComment);
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   next(createError(404));
